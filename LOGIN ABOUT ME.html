@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Background - using a dark gradient to mimic the photo */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #4a4a4a 50%, #1a1a1a 100%);
+        }
+
+        /* The Login Card */
+        .login-container {
+            background-color: #2c2c2c;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            width: 350px;
+            color: white;
+            text-align: left;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: darkgray;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            background-color: #3d3d3d;
+            border-radius: 6px;
+            color: white;
+            outline: none;
+        }
+
+        /* Checkbox area */
+        .options {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin: 20px 0;
+            color: dimgray;
+            text-transform: uppercase;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-submit {
+            background-color: white;
+            color: #333;
+        }
+
+        .btn-submit:hover {
+            background-color: darkslategray;
+        }
+
+        .btn-cancel {
+            background-color: #555;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: gainsboro;
+        }
+    </style>
+    <script>
+    
+    // STEP 1: set your correct username & password here
+    var correctUsername = "admin";
+    var correctPassword = "1234";
+    
+    // STEP 2: this function runs when Submit is clicked
+    
+    function checkLogin (){
+        // Read whatever the user typed into each field
+        var enteredUsername = document.getElementById("username").value;
+        var enteredPassword = document.getElementById("password").value;
+        
+        // Compare what the user typed with the correct values
+        if (enteredUsername === correctUsername && enteredPassword === correctPassword) {
+            // If the username and password is correct, Go to aboutme.html
+            window.location.href ="about me";
+        } else {
+            // If the username and password is Wrong, Show the error message
+            document.getElementById("error-message").style.display = "block";
+        }
+    }
+    
+    // STEP 3: Cancel button clears the form 
+    function clearForm(){
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("error-message").style.value = "none";
+    }
+
+</script>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" placeholder="Username" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="Password" required>
+        </div>
+
+        <div class="options">
+            <input type="checkbox" id="remember">
+            <label for="remember" style="margin:0; cursor:pointer;">Remember Me</label>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-submit">Submit</button>
+            <button class="btn-cancel">Cancel</button>
+        </div>
+    </div>
+
+</body>
+</html>
