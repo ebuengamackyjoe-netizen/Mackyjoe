@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Background - using a dark gradient to mimic the photo */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #4a4a4a 50%, #1a1a1a 100%);
+        }
+
+        /* The Login Card */
+        .login-container {
+            background-color: #2c2c2c;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            width: 350px;
+            color: white;
+            text-align: left;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: darkgray;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            background-color: #3d3d3d;
+            border-radius: 6px;
+            color: white;
+            outline: none;
+        }
+
+        /* Checkbox area */
+        .options {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin: 20px 0;
+            color: dimgray;
+            text-transform: uppercase;
+        }
+
+        .options input {
+            margin-right: 10px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-submit {
+            background-color: white;
+            color: #333;
+        }
+
+        .btn-submit:hover {
+            background-color: darkslategray;
+        }
+
+        .btn-cancel {
+            background-color: #555;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: gainsboro;
+        }
+    </style>
+ <script>
+
+var correctUsername = "admin";
+var correctPassword = "1234";
+
+function checkLogin(){
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if(username === correctUsername && password === correctPassword){
+
+        window.location.href = "about me.html";
+
+    }else{
+
+        document.getElementById("error-message").style.display = "block";
+
+    }
+
+}
+
+function clearForm(){
+    document.getElementById("username").value="";
+    document.getElementById("password").value="";
+    document.getElementById("error-message").style.display="none";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Username"><br>
+
+<input type="password" id="password" placeholder="Password"><br>
+
+<p id="error-message">Wrong Username or Password</p>
+
+<button onclick="checkLogin()">Submit</button>
+<button onclick="clearForm()">Cancel</button>
+
+</div>
+
+</body>
+</html>
